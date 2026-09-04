@@ -1,62 +1,138 @@
-# ⚰️ Shavapetti — Death Predictor AI ☠️
+<img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
-> *"Someone is definitely going to die."*  
-> **Deep Learning Character Tracking & Fatal Foreshadowing Engine for Movie Scenes.**
+
+
+# [Shavapetti] 🎯
+
+
+## Basic Details
+### Team Name: [BillyGang]
+
+
+### Team Members
+- Team Lead: [Bevan Bince] - [Muthoot Institute of Technology And Science]
+- Member 2: [Joswin Thomas] - [Muthoot Institute of Technology And Science]
+
+
+### Project Description
+[Deep Learning Character Tracking & Fatal Foreshadowing Engine
+
+Upload any movie scene. Our neural net tracks characters, scans dialogue for ominous tropes, and predicts who won't survive.]
+
+### The Problem (that doesn't exist)
+[“Can we predict which movie character is most likely to die before the movie actually kills them?” ☠️🎬
+
+Movies are full of suspicious warning signs—ominous dialogue, disappearing screen time, dangerous situations, emotional goodbyes, and characters who suddenly say things like “If anything happens to me…”
+
+Our ridiculous solution is a Death Predictor that analyzes a movie clip, scene timing, subtitles, character appearances, and dialogue to calculate who looks most doomed.]
+
+### The Solution (that nobody asked for)
+[We built an AI-powered Death Predictor that takes a movie clip and subtitles, analyzes the scene timing, character appearances, and dialogue, and then calculates who looks most likely to die. ☠️
+
+The system tracks characters across scenes, matches dialogue to the characters on screen, detects suspicious or dangerous dialogue, and combines these clues into a Death Risk Score.
+
+Basically:
+
+Upload movie → Analyze scenes → Track characters → Read subtitles → Find death clues → Predict the doomed character.
+
+Because why wait for the plot twist when AI can spoil it for you first!]
+
+## Technical Details
+### Technologies/Components Used
+For Software:
+- [Python,html,css,javascript]
+- [flask,flask cor]
+- [OpenCV (cv2) — video processing and frame analysis
+Python SRT/subtitle parsing logic — extracting subtitle text and timestamps
+Character tracking/detection module
+Custom dialogue-matching module
+Custom death-risk analysis engine]
+- [Visual Studio Code
+Python
+Web Browser
+Git/GitHub
+FFmpeg/OpenCV-compatible video processing environment]
+
+For Hardware:
+- [No special hardware is required.]
+- [CPU: Any modern multi-core processor
+RAM: 8 GB or more recommended
+Storage: Sufficient space for video files and extracted frames
+GPU: Optional; useful for heavier computer-vision models]
+- [Laptop/Desktop
+Webcam: Not required
+Internet connection: Only required for development/dependency installation]
+
+### Implementation
+For Software:
+# Installation
+[git clone <your-github-repository-url>
+cd <your-project-folder>
+
+python -m venv venv]
+
+# Run
+[python app.py]
+
+### Project Documentation
+For Software:
+# Screenshots
+
+![Screenshot 1](screenshots/screenshot1.png)
+
+*The main Death Predictor interface where the user can upload a movie clip and subtitle file.*
+
+![Screenshot 2](screenshots/screenshot2.png)
+
+*The application analyzing the uploaded movie clip, scene timing, subtitles, and detected characters.*
+
+![Screenshot 3](screenshots/screenshot3.png)
+
+*The final results showing the predicted death risk for detected characters.*
+
+# Diagrams
+![Movie Clip + Subtitle
+        ↓
+   Flask Web Interface
+        ↓
+    Video Processing
+        ↓
+ Character Detection/Tracking
+        ↓
+   Scene Timing Analysis
+        ↓
+ Subtitle Parsing
+        ↓
+Dialogue → Character Matching
+        ↓
+   Death Risk Analysis
+        ↓
+ Character Risk Score
+        ↓
+   Death Prediction]
+
+For Hardware:
+
+# Schematic & Circuit
+![Circuit](Add your circuit diagram here)
+*Add caption explaining connections*
+
+![Schematic](Add your schematic diagram here)
+*Add caption explaining the schematic*
+
+
+
+
+## Team Contributions
+- [Bevan Bince]: [frontend]
+- [Joswin Thomas]: [backend]
+
 
 ---
+Made with ❤️ at TinkerHub Useless Projects 
 
-## 🎬 Overview
-**Shavapetti** (Death Predictor) is an AI-powered multimedia analysis web application that scans movie clips to predict character mortality. By combining state-of-the-art computer vision (YOLOv11 person detection) with narrative trope analysis and subtitle synchronization, it calculates mortality risk and generates a cinematic **Casualty Assessment Dossier**.
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
 
----
 
-## ⚡ Key Features
 
-- **High-Speed Vision AI**: Optimized sequential demuxing (`cap.grab()`) and batched neural inference with YOLOv11 delivers scene analysis in **under 10 seconds** on standard multi-core CPUs.
-- **Character Portrait Isolation**: Automatically tracks persons across shot cuts and crops high-resolution portrait cards for each primary character.
-- **SRT Timestamp Auto-Alignment**: Automatically synchronizes movie-offset subtitles (e.g. clips cut from 2-hour movies) with the video timeline.
-- **Narrative Death Trope Engine**: Scans dialogue for classic cinematic death omens:
-  - *False Reassurance* ("we're gonna make it", "it's gonna be okay")
-  - *Post-Mission Dreams / Retirement* ("when I get home", "make your flight", "one last job")
-  - *Heroic Sacrifice & Protection* ("stay there", "protect you", "save yourself")
-  - *Fatal Betrayal & Confrontation* ("you betrayed me", "what did you do")
-  - *Desperate Last Pleas* ("look at me", "hold on", "stay with me")
-  - *Farewell & Family Entrustment* ("take care of my family", "promise me", "goodbye")
-- **Cinematic Web Dashboard**:
-  - Dark glassmorphism UI with Google Fonts (`Cinzel` & `Outfit`).
-  - Animated risk meters and survival odds.
-  - Ominous Casualty Verdict Banner.
-  - Video playback preview alongside the analysis.
-  - One-click sample loader for instant demoing.
-
----
-
-## 🛠️ Tech Stack
-
-- **Backend**: Python, Flask, Flask-CORS, OpenCV (`cv2`), Ultralytics YOLOv11 (`yolo11n.pt`), PyTorch
-- **Frontend**: HTML5, Vanilla CSS3 (Glassmorphism, animations), Vanilla JavaScript (Async/Await, Fetch API)
-
----
-
-## 🚀 Quickstart Guide
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/JoswinThomas/shavapetti.git
-cd shavapetti
-```
-
-### 2. Install Dependencies
-```bash
-pip install -r backend/requirements.txt
-```
-
-### 3. Launch the Server
-```bash
-python backend/app.py
-```
-
-### 4. Open in Browser
-Visit **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your browser:
-1. Click **⚡ PREDICT DEATH RISK** to run with the pre-loaded Spider-Man 2 sample.
-2. Or upload your own video clip and matching `.srt` subtitle file.
