@@ -111,7 +111,7 @@ Dialogue → Character Matching
         ↓
    Death Prediction]
 
-# vedio demonstration
+# video demonstration
 [https://drive.google.com/drive/folders/1zZM00nz_qJiJG-9Uu0kf8xX8xZ93jvT5?usp=drive_link]
 
 
