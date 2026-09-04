@@ -117,7 +117,7 @@ Dialogue → Character Matching
 
 
 
-## Team Contributions
+# Team Contributions
 - [Bevan Bince]: [frontend]
 - [Joswin Thomas]: [backend]
 
