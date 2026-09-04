@@ -78,15 +78,15 @@ python -m venv venv]
 For Software:
 # Screenshots
 
-![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 1](https://github.com/JoswinThomas/shavapetti/blob/main/Screenshot%202026-09-04%20102121.png)
 
 *The main Death Predictor interface where the user can upload a movie clip and subtitle file.*
 
-![Screenshot 2](screenshots/screenshot2.png)
+![Screenshot 2](https://github.com/JoswinThomas/shavapetti/blob/main/Screenshot%202026-09-04%20104621.png)
 
 *The application analyzing the uploaded movie clip, scene timing, subtitles, and detected characters.*
 
-![Screenshot 3](screenshots/screenshot3.png)
+![Screenshot 3](https://github.com/JoswinThomas/shavapetti/blob/main/Screenshot%202026-09-04%20104709.png)
 
 *The final results showing the predicted death risk for detected characters.*
 
