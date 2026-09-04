@@ -5,6 +5,11 @@ import cv2
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
+# Support running from project root (gunicorn/Railway) or inside backend/
+BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+if BACKEND_DIR not in sys.path:
+    sys.path.insert(0, BACKEND_DIR)
+
 from subtitle_parser import parse_srt
 from dialogue_matcher import match_dialogue_to_characters
 from character_detector import track_characters
@@ -27,7 +32,8 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(CHAR_IMG_DIR, exist_ok=True)
 
 app = Flask(__name__, static_folder=FRONTEND_DIR)
-CORS(app)
+# Allow all origins so the Vercel frontend can call this Railway backend
+CORS(app, origins="*")
 
 
 # ==========================================
@@ -195,9 +201,11 @@ def analyze():
 # SERVER STARTUP
 # ==========================================
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    host = "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1"
     print()
     print("=" * 50)
-    print("   ☠️ DEATH PREDICTOR AI - BACKEND SERVER")
-    print("   Running on http://127.0.0.1:5000")
+    print("   DEATH PREDICTOR AI - BACKEND SERVER")
+    print(f"   Running on http://{host}:{port}")
     print("=" * 50)
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host=host, port=port, debug=False)

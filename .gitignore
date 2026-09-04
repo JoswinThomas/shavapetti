@@ -19,3 +19,7 @@ Desktop.ini
 
 # Duplicate root weights
 /yolo11n.pt
+
+# Generated / temporary
+backend/screen1
+backend/uploads/sample_frame.jpg

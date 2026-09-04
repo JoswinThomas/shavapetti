@@ -1,6 +1,11 @@
-const API_BASE = window.location.origin.includes(":5000")
-    ? window.location.origin
-    : "http://127.0.0.1:5000";
+// Backend URL: set window.BACKEND_URL in config.js to point to your Railway deployment.
+// Locally this falls back to http://127.0.0.1:5000
+const API_BASE = (typeof window.BACKEND_URL !== "undefined" && window.BACKEND_URL)
+    ? window.BACKEND_URL
+    : (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:5000"
+        : "https://YOUR-RAILWAY-APP.up.railway.app"); // <-- Replace with your Railway URL after deploying
+
 
 let currentSample = "spiderman";
 let progressTimer = null;
