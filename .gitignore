@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+venv/
+env/
+
+# Large media files (> 100MB)
+*.mkv
+*.iso
+*.tar.gz
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Duplicate root weights
+/yolo11n.pt

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Predictor AI — Cinematic Mortality Engine</title>
+    <meta name="description" content="AI-powered movie character death prediction analyzing video tracking, screen presence, and fatal dialogue tropes.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- BACKGROUND AMBIENCE -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="skull-badge">
+                <span class="skull-icon">☠️</span>
+            </div>
+            <h1 class="main-title">DEATH PREDICTOR <span class="ai-tag">AI</span></h1>
+            <p class="subtitle">
+                Deep Learning Character Tracking & Fatal Foreshadowing Engine
+            </p>
+            <p class="tagline">
+                Upload any movie scene. Our neural net tracks characters, scans dialogue for ominous tropes, and predicts who won't survive.
+            </p>
+        </header>
+
+        <!-- PRESET SAMPLES BAR -->
+        <section class="samples-section">
+            <div class="samples-header">
+                <span class="pulse-dot"></span>
+                <span>QUICK DEMO: TEST PRELOADED CLIPS</span>
+            </div>
+            <div class="samples-grid">
+                <button type="button" class="sample-btn active-sample" id="sampleSpidermanBtn" onclick="selectSample('spiderman')">
+                    <span class="sample-icon">🕷️</span>
+                    <div class="sample-info">
+                        <strong>The Amazing Spider-Man 2</strong>
+                        <small>Clock Tower Climax (Gwen & Harry) • With Subtitles</small>
+                    </div>
+                    <span class="sample-badge">Ready</span>
+                </button>
+
+                <button type="button" class="sample-btn" id="sampleDrishyamBtn" onclick="selectSample('drishyam')">
+                    <span class="sample-icon">🔍</span>
+                    <div class="sample-info">
+                        <strong>Drishyam (2013)</strong>
+                        <small>High-Stakes Investigation Scene • Video Only</small>
+                    </div>
+                    <span class="sample-badge">Ready</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- UPLOAD STUDIO -->
+        <section class="upload-studio">
+            <div class="studio-header">
+                <h2>Scene Ingestion Studio</h2>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="upload-grid">
+                <!-- VIDEO UPLOAD BOX -->
+                <div class="drop-zone" id="videoDropZone">
+                    <div class="zone-icon">🎬</div>
+                    <h3>Movie Clip</h3>
+                    <p class="zone-desc">MP4, MKV, or WebM video file</p>
+                    <input type="file" id="videoInput" accept="video/*" class="file-input" onchange="handleFileSelect('video')">
+                    <label for="videoInput" class="custom-file-btn">Choose Video File</label>
+                    <div class="selected-file" id="videoFileName">Sample selected: Spider-Man 2 Climax</div>
+                </div>
+
+                <!-- SUBTITLE UPLOAD BOX -->
+                <div class="drop-zone" id="subDropZone">
+                    <div class="zone-icon">📜</div>
+                    <h3>Subtitle File (Optional)</h3>
+                    <p class="zone-desc">SRT file containing scene or movie dialogue</p>
+                    <input type="file" id="subtitleInput" accept=".srt" class="file-input" onchange="handleFileSelect('subtitle')">
+                    <label for="subtitleInput" class="custom-file-btn">Choose .SRT File</label>
+                    <div class="selected-file" id="subFileName">Sample selected: subtitle.srt</div>
+                </div>
+            </div>
+
+            <!-- ACTION BUTTON -->
+            <div class="action-wrap">
+                <button type="button" id="predictBtn" class="predict-btn" onclick="analyzeVideo()">
+                    <span class="btn-glow"></span>
+                    <span class="btn-text">⚡ PREDICT DEATH RISK</span>
+                </button>
+            </div>
+
+            <!-- LIVE STATUS & PROGRESS -->
+            <div id="statusCard" class="status-card" style="display: none;">
+                <div class="radar-spinner">
+                    <div class="scanner-ring"></div>
+                    <span class="scanner-skull">☠️</span>
+                </div>
+                <div class="status-content">
+                    <h4 id="statusTitle">Neural Analysis in Progress...</h4>
+                    <p id="statusDesc">Scanning video frames with YOLOv11 and evaluating lethal flags.</p>
+                    <div class="progress-bar-wrap">
+                        <div id="progressBar" class="progress-bar-fill"></div>
+                    </div>
+                    <div class="steps-indicator">
+                        <span id="step1" class="step-chip active">1. Vision AI</span>
+                        <span id="step2" class="step-chip">2. Tracking</span>
+                        <span id="step3" class="step-chip">3. Tropes</span>
+                        <span id="step4" class="step-chip">4. Verdict</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS DASHBOARD -->
+        <section id="results" class="results-dashboard" style="display: none;">
+            <!-- CINEMATIC VERDICT BANNER -->
+            <div id="verdictBanner" class="verdict-banner">
+                <div class="verdict-glow"></div>
+                <div class="verdict-inner">
+                    <div class="verdict-tag" id="verdictTag">CASUALTY ASSESSMENT</div>
+                    <h2 class="verdict-headline" id="verdictHeadline">SOMEONE IS NOT MAKING IT OUT</h2>
+                    <p class="verdict-summary" id="verdictSummary"></p>
+                    <div class="verdict-target-box">
+                        <span>PRIMARY CASUALTY TARGET:</span>
+                        <strong id="verdictTarget">Character</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION TITLE -->
+            <div class="section-title-wrap">
+                <h3>INDIVIDUAL MORTALITY DOSSIER</h3>
+                <p>Calculated using YOLOv11 person tracking, screen prominence, and fatal dialogue foreshadowing.</p>
+            </div>
+
+            <!-- CHARACTER CARDS CONTAINER -->
+            <div id="characterResults" class="character-grid">
+                <!-- Dynamically injected cards -->
+            </div>
+
+            <!-- VIDEO PLAYER PREVIEW -->
+            <div class="video-preview-card" id="videoPreviewCard" style="display: none;">
+                <div class="preview-header">
+                    <h4>SCENE PLAYBACK & VERIFICATION</h4>
+                    <span class="preview-tag">Original Footage</span>
+                </div>
+                <video id="sceneVideo" controls playsinline class="scene-player"></video>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
