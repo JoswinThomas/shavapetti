@@ -111,14 +111,8 @@ Dialogue → Character Matching
         ↓
    Death Prediction]
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+# vedio demonstration
+[https://drive.google.com/drive/folders/1zZM00nz_qJiJG-9Uu0kf8xX8xZ93jvT5?usp=drive_link]
 
 
 
